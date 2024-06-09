@@ -10,7 +10,26 @@
     - bg image
     - Sign In form and tailwind css to the form
     - Sign Up form by reusing sign In form (done using state handler toggle button)
-    
+    - Validation using regex for inputs given to forms on click of signIn/up button
+
+- Setting firebase connection in our project, connecting to our firebase account and deploying our app using firebase hosting to production
+    - commands ( npm install -g firebase-tools,firebase login, firebase init, npm run build to create build, firebase deploy)
+
+- Login page continuation
+    - Sign up and sign in imoplementation using firebase auth
+- Setting up redux store
+    - npm i -D @reduxjs/toolkit
+    - npm i react-redux
+    - created store
+    - created slice and exported reducer and actions of slice
+    - imported slice reducer into store
+    - we have just configured store when we created it, now we will connect our store to the app
+        - done using <provider store={appStore}></provider>
+    - we have to now write dispatchers of actions and selectors for subscribing to the store slices.
+    - dispatcher is written in body.js inside onAuthStateChanged() this is basically like  a event listener whenever user state is changed the call will be made.
+    - update of user profile with display name in body.js after user signs up.
+    - signOut button implementation in the header for signed in user.
+
 
 
 # Planning 
