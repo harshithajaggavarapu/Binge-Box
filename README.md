@@ -29,6 +29,8 @@
     - dispatcher is written in body.js inside onAuthStateChanged() this is basically like  a event listener whenever user state is changed the call will be made.
     - update of user profile with display name in body.js after user signs up.
     - signOut button implementation in the header for signed in user.
+        - installed reactjs-popup ( for popup below of logged in user icon )
+        - using reactjs-popup modal, popup is built ( Hip Hip Hooray !!!! Read the documentation !!!)
 
 
 
