@@ -1,13 +1,15 @@
-import React from "react";
-import { signOut } from "firebase/auth";
+import React, { useEffect } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatcher = useDispatch();
   const user = useSelector((store) => store.user);
   const contentStyle = { background: "#000" };
   const arrowStyle = { color: "#000" };
@@ -15,12 +17,26 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/");
       })
       .catch((error) => {
         // An error happened.
       });
   };
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email, displayName } = user;
+        dispatcher(addUser({ uid, email, displayName }));
+        navigate("/browse");
+      } else {
+        // User is signed out
+        dispatcher(removeUser());
+        navigate("/");
+      }
+    });
+  }, []);
   return (
     <div className="absolute w-screen bg-gradient-to-br from-black py-4 px-10 z-10 flex justify-between">
       <img

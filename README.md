@@ -31,7 +31,7 @@
     - signOut button implementation in the header for signed in user.
         - installed reactjs-popup ( for popup below of logged in user icon )
         - using reactjs-popup modal, popup is built ( Hip Hip Hooray !!!! Read the documentation !!!)
-
+    - fixing the bug of routing to browse page even when user is signed in
 
 
 # Planning 
