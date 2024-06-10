@@ -50,6 +50,13 @@
     - Now building of MainBrowseComponent.js
 
 - Building Browse page movie lists
+    - created movieList, movieCard components
+    - created a slice to store tvseries data in store
+    - using TMDB api's, created custom hooks for getting top rated and popular series, movies
+    - using the above data, lists are populated in MainBrowseContainer component
+    - each list will have all the cards of received toprated, popular values
+    - NOTE: make sure right data type is declared in slice while intializing the state (object, array etc)
+    - using tailwind css components are adjusted to match netflix UI.
 # Planning 
 - new User Home page
     - sign In options

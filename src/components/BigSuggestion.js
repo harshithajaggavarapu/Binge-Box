@@ -8,7 +8,6 @@ const BigSuggestion = () => {
   if (!movies) return;
   const bigSuggestionMovie = movies[0];
   if (!bigSuggestionMovie) return;
-  console.log(bigSuggestionMovie);
   const { original_title, overview, id } = bigSuggestionMovie;
   return (
     <div>
