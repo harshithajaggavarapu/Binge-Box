@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { addUser, removeUser } from "../utils/userSlice";
+import { NETFLIX_LOGO, USER_LOGO } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Header = () => {
       });
   };
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
@@ -36,24 +37,17 @@ const Header = () => {
         navigate("/");
       }
     });
+    return () => unsubscribe();
   }, []);
   return (
     <div className="absolute w-screen bg-gradient-to-br from-black py-4 px-10 z-10 flex justify-between">
-      <img
-        className="h-14"
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        alt="netflix"
-      />
+      <img className="h-14" src={NETFLIX_LOGO} alt="netflix" />
       {user && (
         <div className="flex">
           <Popup
             trigger={(open) => (
               <button className="flex ">
-                <img
-                  className="w-14 h-14 p-2"
-                  src="https://occ-0-1723-1001.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABaOSLQEhS4tl2c7sqj78iG4xD39f79rYo1zxh5bKc4lUB5lu4GNo0afoKPJV0FTKP_ptrta5zIhdpVtDEEC_5vcMP8cdqsc.png?r=28c"
-                  alt="userLogo"
-                />
+                <img className="w-14 h-14 p-2" src={USER_LOGO} alt="userLogo" />
                 {open ? (
                   <div className="h-0 w-0 border-x-8 border-x-transparent border-b-8 border-b-white-600 self-center"></div>
                 ) : (
