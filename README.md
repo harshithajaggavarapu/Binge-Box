@@ -32,8 +32,24 @@
         - installed reactjs-popup ( for popup below of logged in user icon )
         - using reactjs-popup modal, popup is built ( Hip Hip Hooray !!!! Read the documentation !!!)
     - fixing the bug of routing to browse page even when user is signed in
+    - unsubscribing to onAuthStateChanged when component is unmounted( always unsubscribe to listeners on unmounting the component)
 
 
+- Building Browse page using TMDB Api's
+    - Registered for TMDB api
+    - fetch api call for nowplaying movies in Browse page
+    - configuring moviesSlice and adding it to redux store for the storage of data fetched from api
+    - wrote customHook for fetching data call and updating the store so that browse component looks clean.
+    - created BigSuggestion and MainBrowseCompoenent cmponents
+    - For the bigsuggestion video play and display, added videoTitle.js and videoBackground.js
+    - fetched video details using custom hook and updated movieSlice with the data
+    - In videoBackground.js using the key returned from videos api of tmdb, "YOUTUBE EMBEDDED VIDEO" is inserted to play trailer of 
+        movie suggestion
+    - made the video autoplay and mute
+    - BigSuggestion.js is styled and completed
+    - Now building of MainBrowseComponent.js
+
+- Building Browse page movie lists
 # Planning 
 - new User Home page
     - sign In options
@@ -47,12 +63,16 @@
     - Big suggestion box
         - trailer in bg
         - suggestion title and description ( with info, play buttons)
-    - suggestions for you section
+    <!-- - suggestions for you section
         - scrollable list of suggestions
     - suggestions based on genre
         - scrollable list of suggestions
     - Top 10 movies list
-    - Top 10 series list
+    - Top 10 series list -->
+        - all the above lists are repetative (same component can be used)
+            - lists * n
+                - each list will have different no of movies each with a movie card
+                    - movieCards * n
 
 - Netflix GPT page
     - Search bar that gives suggestions using GPT based on user request
