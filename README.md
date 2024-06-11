@@ -57,6 +57,21 @@
     - each list will have all the cards of received toprated, popular values
     - NOTE: make sure right data type is declared in slice while intializing the state (object, array etc)
     - using tailwind css components are adjusted to match netflix UI.
+
+- Movie recommendation system using GPT API
+    - Button on header so that user is directed to gpt search feature
+    - toggle feature for showcase of gpt view when clicked on gpt button using redux store value 
+    - 2 components gpt search bar and gpt suggestions
+    - built the search bar outlook 
+
+- adding multi language feature to our website
+    - dropdown on header to select the language for logged in user using constants.js "langs" array of language objects
+    - creating languageConstants.js file to add all the texts for corresponding keys for different languages
+    - new slice creation for updation of user preferred language
+    - Using useRef to update the store with selected value
+
+# learnings
+- when we write parent inside a parent instead of child by mistake, app will be crashed and usually shows white blank page or page unresponsive.
 # Planning 
 - new User Home page
     - sign In options

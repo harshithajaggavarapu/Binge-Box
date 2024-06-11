@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
@@ -7,11 +7,18 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO, USER_LOGO } from "../utils/constants";
+import { switchToGptPage } from "../utils/gptSlice";
+import { langs } from "../utils/constants";
+import { modifyLangPreference } from "../utils/langConfigSlice";
+import { dictLang } from "../utils/languageConstants";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatcher = useDispatch();
+  const languageSelected = useRef();
   const user = useSelector((store) => store.user);
+  const lang = useSelector((store) => store.langConfig.lang);
+  const gptSearchValue = useSelector((store) => store.gptOptions.togglebutton);
   const contentStyle = { background: "#000" };
   const arrowStyle = { color: "#000" };
   const handleSignOut = () => {
@@ -23,6 +30,20 @@ const Header = () => {
         // An error happened.
       });
   };
+  const toggleGptPage = () => {
+    dispatcher(switchToGptPage());
+  };
+  // general way of updating the dropdown value
+  // const handleLangChange = (e) => {
+  //   dispatcher(modifyLangPreference(e.target.value));
+  // };
+
+  // **** USING USEREF
+
+  const handleLangChange = () => {
+    dispatcher(modifyLangPreference(languageSelected.current.value));
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -44,6 +65,24 @@ const Header = () => {
       <img className="h-14" src={NETFLIX_LOGO} alt="netflix" />
       {user && (
         <div className="flex">
+          <select
+            ref={languageSelected}
+            className="bg-gray-700 text-white p-2 m-2 rounded-md "
+            onChange={handleLangChange}
+          >
+            {langs.map((lang) => (
+              <option key={lang.identifier} value={lang.identifier}>
+                {lang.value}
+              </option>
+            ))}
+          </select>
+
+          <button
+            onClick={toggleGptPage}
+            className="bg-gray-700 text-white p-2 m-2 rounded-lg"
+          >
+            {gptSearchValue ? dictLang[lang].home : dictLang[lang].gptSearch}
+          </button>
           <Popup
             trigger={(open) => (
               <button className="flex ">
@@ -59,7 +98,7 @@ const Header = () => {
             {...{ contentStyle, arrowStyle }}
           >
             <button onClick={handleSignOut} className="text-white p-2">
-              Sign Out of Netflix
+              {dictLang[lang].signOut}
             </button>
           </Popup>
         </div>

@@ -14,3 +14,8 @@ export const API_OPTIONS = {
 };
 
 export const IMG_TMDB_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const langs = [
+  { identifier: "en", value: "English" },
+  { identifier: "spanish", value: "Spanish" },
+];
