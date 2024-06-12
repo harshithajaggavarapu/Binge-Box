@@ -70,8 +70,26 @@
     - new slice creation for updation of user preferred language
     - Using useRef to update the store with selected value
 
+- Gpt api integration
+    - api key for accesing apis
+    - npm install openai
+    - created helper function for openai
+    - api call from search bar and fetch the details from gpt
+    - now the details of  movies/series returned by gpt are searched in tmdb api and displayed to user
+    - tmdb api call to get entire details of gpt search resulted movies
+    - storing the results into gptslice
+    - subscribing to store and displaying the suggestions in gptSuggestions Component
+    - clearing the results when user directed to home page
+
+- keeping all secret keys inside env file
+- Memoization for fetch calls
+- making website responsive
+    - md: (will make it for desktop), sm: tab, default is mobile
+
+
 # learnings
 - when we write parent inside a parent instead of child by mistake, app will be crashed and usually shows white blank page or page unresponsive.
+- make sure the prompt to gpt is on point else life will become horrible!!!!! 
 # Planning 
 - new User Home page
     - sign In options

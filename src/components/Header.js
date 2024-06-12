@@ -7,7 +7,7 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETFLIX_LOGO, USER_LOGO } from "../utils/constants";
-import { switchToGptPage } from "../utils/gptSlice";
+import { clearSearchResults, switchToGptPage } from "../utils/gptSlice";
 import { langs } from "../utils/constants";
 import { modifyLangPreference } from "../utils/langConfigSlice";
 import { dictLang } from "../utils/languageConstants";
@@ -32,6 +32,7 @@ const Header = () => {
   };
   const toggleGptPage = () => {
     dispatcher(switchToGptPage());
+    dispatcher(clearSearchResults());
   };
   // general way of updating the dropdown value
   // const handleLangChange = (e) => {
