@@ -9,8 +9,8 @@ const MainBrowseContainer = () => {
   const lang = useSelector((store) => store.langConfig.lang);
   return (
     moviesLists && (
-      <div className="bg-black pl-10 bg-opacity-95">
-        <div className="-mt-36 relative z-20">
+      <div className="bg-black pl-6 md:pl-10 bg-opacity-95">
+        <div className="mt-0 md:-mt-36 relative z-20">
           <MovieList
             title={dictLang[lang].nowPlaying}
             items={moviesLists.nowPlayingMovies}

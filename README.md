@@ -1,5 +1,30 @@
-# Steps followed
+# Planning 
+- new User Home page
+    - sign In options
+    - signup options
+- Sign in PAGE
+    - sign in / sign up form 
+    - redirection to browse page after authenticated
+- when user is not logged in, on click of browse page,user is routed to home page (i.e sign in page )
+- Browse page (only available to logged in USER)
+    - header
+    - Big suggestion box
+        - trailer in bg
+        - suggestion title and description ( with info, play buttons)
+    <!-- - suggestions for you section
+        - scrollable list of suggestions
+    - suggestions based on genre
+        - scrollable list of suggestions
+    - Top 10 movies list
+    - Top 10 series list -->
+        - all the above lists are repetative (same component can be used)
+            - lists * n
+                - each list will have different no of movies each with a movie card
+                    - movieCards * n
 
+- Netflix GPT page
+    - Search bar that gives suggestions using GPT based on user request
+# Steps followed
 - Creating app
 - configure Tailwind css
 - configure Routing (install react-router-dom)
@@ -81,38 +106,12 @@
     - subscribing to store and displaying the suggestions in gptSuggestions Component
     - clearing the results when user directed to home page
 
-- keeping all secret keys inside env file
-- Memoization for fetch calls
+- keeping all secret keys inside env file and .env in gitignore
+<!-- - Memoization for fetch calls -->
 - making website responsive
     - md: (will make it for desktop), sm: tab, default is mobile
 
 
-# learnings
+# learnings(Notes)
 - when we write parent inside a parent instead of child by mistake, app will be crashed and usually shows white blank page or page unresponsive.
 - make sure the prompt to gpt is on point else life will become horrible!!!!! 
-# Planning 
-- new User Home page
-    - sign In options
-    - signup options
-- Sign in PAGE
-    - sign in / sign up form 
-    - redirection to browse page after authenticated
-- when user is not logged in, on click of browse page,user is routed to home page (i.e sign in page )
-- Browse page (only available to logged in USER)
-    - header
-    - Big suggestion box
-        - trailer in bg
-        - suggestion title and description ( with info, play buttons)
-    <!-- - suggestions for you section
-        - scrollable list of suggestions
-    - suggestions based on genre
-        - scrollable list of suggestions
-    - Top 10 movies list
-    - Top 10 series list -->
-        - all the above lists are repetative (same component can be used)
-            - lists * n
-                - each list will have different no of movies each with a movie card
-                    - movieCards * n
-
-- Netflix GPT page
-    - Search bar that gives suggestions using GPT based on user request

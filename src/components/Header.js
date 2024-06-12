@@ -62,10 +62,10 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
   return (
-    <div className="absolute w-screen bg-gradient-to-br from-black py-4 px-10 z-10 flex justify-between">
-      <img className="h-14" src={NETFLIX_LOGO} alt="netflix" />
+    <div className="absolute w-screen bg-gradient-to-br from-black py-4 px-10 z-10 flex justify-between flex-col md:flex-row">
+      <img className="h-14 mx-auto md:mx-0" src={NETFLIX_LOGO} alt="netflix" />
       {user && (
-        <div className="flex">
+        <div className="flex justify-between">
           <select
             ref={languageSelected}
             className="bg-gray-700 text-white p-2 m-2 rounded-md "

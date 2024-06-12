@@ -84,16 +84,20 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BG_LOGO} alt="bgLogo" />
+        <img
+          className="h-screen object-cover md:h-auto md:object-none"
+          src={BG_LOGO}
+          alt="bgLogo"
+        />
       </div>
-      <div>
+      <div className="">
         <form
           onSubmit={(e) => {
             e.preventDefault();
           }}
-          className="bg-black text-white absolute w-3/12 my-60 mx-auto right-0 left-0 py-20 px-10 bg-opacity-80"
+          className="bg-black text-white rounded-lg absolute w-8/12 my-[50%] md:w-3/12 md:my-60 mx-auto right-0 left-0 md:py-20 md:px-10 bg-opacity-80"
         >
-          <h1 className="font-bold text-2xl">
+          <h1 className="font-bold text-lg p-[5%] md:p-0 md:text-2xl">
             {isSignIn ? "Sign In" : "Sign Up"}
           </h1>
           {!isSignIn && (
@@ -101,31 +105,33 @@ const Login = () => {
               ref={name}
               type="text"
               placeholder="Full Name"
-              className="p-4 my-4 w-full bg-gray-700 rounded-md"
+              className="md:p-4 md:my-4 w-3/4 p-2 my-2 mx-[10%] md:mx-0 md:w-full bg-gray-700 rounded-md"
             />
           )}
           <input
             ref={email}
             type="text"
             placeholder="Email"
-            className="p-4 my-4 w-full bg-gray-700 rounded-md"
+            className="md:p-4 md:my-4 w-3/4 p-2 my-2 mx-[10%] md:mx-0 md:w-full bg-gray-700 rounded-md"
           />
           <input
             ref={password}
             type="password"
             placeholder="Password"
-            className="p-4 my-4 w-full bg-gray-700 rounded-md"
+            className="md:p-4 md:my-4 w-3/4 p-2 my-2 mx-[10%] md:mx-0 md:w-full bg-gray-700 rounded-md"
           />
           {errorMessage && (
-            <p className="text-red-700 py-3 text-xl">{errorMessage}</p>
+            <p className="text-red-700 py-3 text-xs md:text-xl mx-[5%] md:mx-0">
+              {errorMessage}
+            </p>
           )}
           <button
             onClick={handleSubmit}
-            className="py-2 my-6 bg-red-700 w-full rounded-md"
+            className="md:py-2 md:my-6 mx-[10%] md:mx-0 py-1 my-3 bg-red-700 w-9/12 md:w-full rounded-md"
           >
             {isSignIn ? "Sign In" : "Sign Up"}
           </button>
-          <div className="flex text-lg">
+          <div className="flex text-xs pb-4 mx-[10%] md:mx-0 md:pb-0 md:text-lg">
             <p className="font-light text-gray-500">
               {isSignIn ? "New to Netflix?" : "Already registered user?"}
             </p>

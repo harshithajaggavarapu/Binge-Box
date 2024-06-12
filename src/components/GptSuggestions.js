@@ -12,7 +12,7 @@ const GptSuggestions = () => {
     : [];
 
   return (
-    <div className="bg-black bg-opacity-80 m-[3%]">
+    <div className="bg-black bg-opacity-80 m-[5%] md:m-[3%]">
       <div className="pl-[5%]">
         {gptResultsArray.map((movieset, index) => (
           <MovieList
